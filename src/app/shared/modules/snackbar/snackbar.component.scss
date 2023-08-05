@@ -1,0 +1,33 @@
+//.success {
+//    color: white;
+//}
+//
+//.red-snackbar {
+//    background-color: rgb(153, 50, 50);
+//    color: lightgoldenrodyellow;
+//
+//    .mat-simple-snackbar-action {
+//        color: #155724 !important;
+//    }
+//
+//}
+//
+::ng-deep.red-snackbar {
+    background-color: rgb(153, 50, 50);
+    color: lightgoldenrodyellow;
+}
+
+//::ng-deep .mat-snack-bar-container {
+//    background: #52caa8 !important;
+//}
+//
+//.mat-simple-snackbar-action {
+//    color: #155724 !important;
+//}
+
+
+::ng-deep .mat-snack-bar-container .mat-simple-snackbar{
+    color: rgba(255, 255, 255, 0.7);
+    background: #ffffff!important;
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+}
