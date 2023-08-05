@@ -13,7 +13,7 @@
 <!--</div>-->
 <mat-card>
   <mat-card-content>
-    <form [formGroup]="form" fxLayout="column" fxLayoutGap="24px" class="w-100-p">
+    <form  fxLayout="column" fxLayoutGap="24px" class="w-100-p">
 
 <!--    <form #signInForm="ngForm" (ngSubmit)="onSubmit()">-->
       <h2>Sign Up</h2>
@@ -21,7 +21,7 @@
 <!--        The username and password were not recognized-->
 <!--      </mat-error>-->
       <mat-form-field>
-        <input matInput placeholder="User Name"  name="username" required>
+        <input  formControlName="colorControl" matInput placeholder="User Name"  name="username" required>
         <mat-error>
           User name is required
         </mat-error>
