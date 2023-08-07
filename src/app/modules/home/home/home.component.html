@@ -1,0 +1,40 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+          <ng-container>
+            <button mat-icon-button (click)="snav.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <h1 class="example-app-name">Twitter</h1>
+            <span class="example-spacer"></span>
+            <button mat-raised-button color="primary" *ngIf="authService.loggedInStatus" (click)="logout()">Logout</button>
+            <button mat-raised-button color="primary"(click)="signin()"  *ngIf="!authService.loggedInStatus">Sign in</button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+              <mat-icon>share</mat-icon>
+            </button>
+          </ng-container>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav [opened]="true" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <div *ngFor="let nav of navLists">
+          <div class="nav_btn">
+            <a mat-list-item [routerLink]="(nav.name === 'Profile') ? nav.url + '/' +authService.authInfo.id : nav.url" >
+              <button color="" mat-icon-button  class="nav_link">
+                <mat-icon>{{nav.icon}}</mat-icon>
+              </button>
+            </a>
+          </div>
+
+        </div>
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+     <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

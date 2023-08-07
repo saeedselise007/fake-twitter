@@ -1,14 +1,8 @@
 <mat-card>
-  <mat-card-title>Sign Up</mat-card-title>
+  <mat-card-title>Login</mat-card-title>
   <mat-card-content>
+    <app-loader *ngIf='isLoading' ></app-loader>
     <form #signInForm="ngForm" (ngSubmit)="onSubmit()" >
-      <p>
-        <mat-form-field>
-          <input matInput placeholder="User Name" [(ngModel)]="username" name="username" required>
-          <mat-error>User name is required</mat-error>
-        </mat-form-field>
-      </p>
-
       <p>
         <mat-form-field>
           <input matInput placeholder="Email" [(ngModel)]="userEmail" name="Email" required>
@@ -30,11 +24,11 @@
         The username and password were not recognized
       </p>
       <div class="button">
-        <button type="submit" [disabled]="!signInForm.form.valid" mat-button>Sign Up</button>
+        <button type="submit" [disabled]="!signInForm.form.valid" mat-button>Login</button>
       </div>
-      <p>Already have an account?</p>
+        <p>Don’t have an account?&nbsp;&nbsp;</p>
       <div class="button mt-10">
-        <button (click)="goToSignIn()" mat-button>Sign in</button>
+        <button (click)="goToSignUp()" mat-button>SignUp</button>
       </div>
 
     </form>

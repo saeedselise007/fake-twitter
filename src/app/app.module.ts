@@ -5,9 +5,11 @@ import {AppComponent} from './app.component';
 import {RouterModule} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {SingupComponent} from "./modules/signup/singup/singup.component";
 import {FlexLayoutModule} from "@angular/flex-layout";
-// import {RouterGuard} from "./core/auth/guards/routerGuard/router.guard";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthService} from "./core/auth/auth.service";
+import {AuthGuard} from "./core/auth/guards/auth.guard";
+import {AuthInterceptor} from "./core/auth/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -17,19 +19,43 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     BrowserModule,
     CommonModule,
     FlexLayoutModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(
       [
         {
-          path: 'sign-in',
+          path: '',
+          redirectTo: 'home',
+          pathMatch: 'full',
+        },
+        {
+          path: 'sign-up',
           // canActivate: [RouterGuard],
           // component: SingupComponent,
           loadChildren: () => import('./modules/signup/signup.module').then(m => m.SignupModule)
         },
+        {
+          path: 'sign-in',
+          // canActivate: [RouterGuard],
+          loadChildren: () => import('./modules/sign-in/sign-in.module').then(m => m.SignInModule)
+        },
+        {
+          path: 'home',
+          canActivate: [AuthGuard],
+          loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+        },
       ],
     )
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

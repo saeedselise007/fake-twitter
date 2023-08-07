@@ -1,0 +1,31 @@
+<div class='main-content'>
+  <app-loader *ngIf="isLoading"></app-loader>
+
+  <form  [formGroup]="form" >
+    <div style=" padding:5px;">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Search</mat-label>
+        <input matInput formControlName="search" placeholder="Search ...">
+      </mat-form-field>
+    </div>
+  </form>
+
+  <ng-container *ngFor="let list of allUserList" >
+    <div class="content-card">
+      <mat-card  >
+        <mat-card-header class="example-card" (click)="onClick(list.id)">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{list?.username}}</mat-card-title>
+          <mat-card-subtitle>{{list?.email}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div>
+            <button (click)="follow(list.id)" mat-button color="primary">Follow</button>
+            <button (click)="Unfollow(list.id)" mat-button color="primary">Unfollow</button>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>

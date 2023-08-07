@@ -1,0 +1,38 @@
+.main_container{
+  padding: 20px;
+}
+.timeline_container{
+  margin-top: 10px;
+}
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+.main-content {
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#post-form {
+  text-align: left;
+  width: 100%;
+}
+
+#post-button {
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+
+.content-card {
+  margin: 2% 0 2% 0;
+}
+
+#post-content {
+  word-break: break-all;
+  white-space: normal;
+}

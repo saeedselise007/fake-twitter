@@ -1,0 +1,23 @@
+.main-content {
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.example-card {
+  /*max-width: 400px;*/
+  margin-bottom: 8px;
+  margin-top: 10px;
+}
+.example-header-image {
+  background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80');
+  background-size: cover;
+}
+
+.content-card {
+  margin: 2% 0 2% 0;
+}
+.twitter-content{
+  margin-top: 10px;
+}

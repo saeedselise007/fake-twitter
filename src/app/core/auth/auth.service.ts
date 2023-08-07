@@ -3,18 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import {BehaviorSubject, Observable, of, throwError} from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable()
 export class AuthService
 {
     public userLogInStatus = new BehaviorSubject(false);
-    public signupPasswordStatus = new BehaviorSubject(false);
-    public beneficialSignUp = new BehaviorSubject(null);
-    public locationCountry = new BehaviorSubject(null);
-    public contactInfoCountry = new BehaviorSubject(null);
-    public formattedAddress = new BehaviorSubject(null);
-    public $ProviderProfileInfoTabChangeEvent = new BehaviorSubject(0);
-    public profileImgPath = new BehaviorSubject(null);
     private _authenticated: boolean = false;
     private readonly _baseUrl;
     /**
@@ -22,6 +16,7 @@ export class AuthService
      */
     constructor(
         private _httpClient: HttpClient,
+        // private _snackBar: MatSnackBar
         // private _userService: UserService
     )
     {
@@ -134,18 +129,18 @@ export class AuthService
     // /**
     //  * Sign out
     //  */
-    // signOut(): Observable<any>
-    // {
-    //     // Remove the access token from the local storage
-    //     // localStorage.removeItem('accessToken');
-    //     localStorage.clear();
-    //
-    //     // Set the authenticated flag to false
-    //     this._authenticated = false;
-    //
-    //     // Return the observable
-    //     return of(true);
-    // }
+    signOut(): Observable<any>
+    {
+        // Remove the access token from the local storage
+        localStorage.removeItem('accessToken');
+        localStorage.clear();
+
+        // Set the authenticated flag to false
+        this._authenticated = false;
+
+        // Return the observable
+        return of(true);
+    }
     //
     // /**
     //  * Sign up
@@ -194,29 +189,31 @@ export class AuthService
     //     return this._httpClient.post(`${environment.baseUrl}Users/GetUser/`, {id: id});
     // }
 
-    setAuthInfoInLocalStorage( data?: any): void {
+    setAuthInfoInLocalStorage(accessToken, payload): void {
         localStorage.clear();
+        this.accessToken = accessToken;
         localStorage.setItem('auth', JSON.stringify({
-            email: data.email,
-            id: data.id,
-            userRole: data.userRole,
-            fullName: data.fullName,
-            userName: data.userName,
-            concurrencyStamp: data.concurrencyStamp,
-            profilePicture: data.profilePicture,
+            id: Number(payload.id),
+            token:accessToken,
             loggedIn: true
         }));
     }
 
     get authInfo(): any {
-        return JSON.parse(localStorage.getItem('auth') || '');
-    }
-    get rememberMeInfo(): any {
-        return JSON.parse(localStorage.getItem('rememberMe')|| '');
+        return JSON.parse(localStorage.getItem('auth'));
     }
 
     get loggedInStatus(): boolean {
         return this.authInfo && this.authInfo.loggedIn ? this.authInfo.loggedIn : false;
     }
 
+
+  // openSnackBar(message): void {
+  //   this._snackBar.open(message, 'X', {
+  //     duration: 3000,
+  //     panelClass: ['red-snackbar'],
+  //     horizontalPosition: 'end',
+  //     verticalPosition: 'top',
+  //   });
+  // }
 }

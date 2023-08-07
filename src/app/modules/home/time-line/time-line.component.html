@@ -1,0 +1,23 @@
+<mat-progress-bar *ngIf="isLoading"></mat-progress-bar>
+
+<div class='main-content'>
+  <form class="content-form"  [formGroup]="form" >
+    <mat-form-field id='post-form'>
+      <textarea formControlName="message"  matInput #message maxlength="140" placeholder="What is Happening"></textarea>
+      <mat-hint align="end">{{message.value.length}} / 140</mat-hint>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" (click)="tweet()"  >tweet</button>
+
+
+
+  <div class='twitter-content'>
+    <ng-container *ngFor="let post of AllTimeLineFeeds">
+      <div class="content-card" >
+        <app-tweet-feed [userDetails]="post"></app-tweet-feed>
+      </div>
+    </ng-container>
+  </div>
+
+</div>
+

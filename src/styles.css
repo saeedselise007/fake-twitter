@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+.main-content {
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.content-card {
+  margin: 2% 0 2% 0;
+}
+.twitter-content{
+  margin-top: 10px;
+}
+
+.mt-12{
+  margin-top: 12px;
+}
+.mt-16{
+  margin-top: 16px;
+}
