@@ -1,5 +1,5 @@
 # Twitter
-# Angular
+# Angular 12
 
 This is a test project to demonstrate using Intern with Angular 4+.
 
@@ -8,8 +8,8 @@ This is a test project to demonstrate using Intern with Angular 4+.
 ### Clone the repo
 
 ```shell
-#git clone https://github.com/bryanforbes/intern-angular
-#cd intern-angular
+#git clone https://github.com/samisaeed/twitter-clone-app.git
+#cd twitter-clone-app
 ```
 
 ### Install npm packages
@@ -18,7 +18,7 @@ Install the `npm` packages described in the `package.json` and verify that it wo
 
 ```shell
 npm install
-npm start
+npm start / ng serve
 ```
 
 The `npm start` command builds (compiles TypeScript and copies assets) the application into `dist/`, watches for changes to the source files, and runs `lite-server` on port `3000`.
