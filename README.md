@@ -1,5 +1,5 @@
 # Twitter
-# Angular
+# Angular 12
 
 This is a test project to demonstrate using Intern with Angular 4+.
 
