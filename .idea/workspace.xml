@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="032cffbb-2f86-4826-8fa4-dd1378db72c1" name="Changes" comment="twitter clone app">
-      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
-    </list>
+    <list default="true" id="032cffbb-2f86-4826-8fa4-dd1378db72c1" name="Changes" comment="twitter clone app" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +80,7 @@
       <workItem from="1691281767057" duration="12981000" />
       <workItem from="1691345115697" duration="25521000" />
       <workItem from="1691385202360" duration="34000" />
-      <workItem from="1691859804973" duration="2040000" />
+      <workItem from="1691859804973" duration="2339000" />
     </task>
     <task id="LOCAL-00001" summary="twitter clone app">
       <created>1691374421851</created>
